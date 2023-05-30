@@ -161,4 +161,4 @@ arch/arm/boot/dts/board.dts
 scripts/module-lto.lds
 
 # binary boot image
-rvboards_img/rvboards_boot.img
+#rvboards_img/rvboards_boot.img  # Don't ignore because it is in the repo at the beginning.
