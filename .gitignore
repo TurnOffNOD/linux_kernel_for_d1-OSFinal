@@ -159,3 +159,6 @@ arch/arm/boot/dts/board.dts
 
 #lto lds
 scripts/module-lto.lds
+
+# binary boot image
+rvboards_img/rvboards_boot.img
