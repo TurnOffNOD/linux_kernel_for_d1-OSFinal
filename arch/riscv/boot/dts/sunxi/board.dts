@@ -186,6 +186,18 @@
 		bias-pull-up;
 	};
 
+	uart5_pins_a: uart5_pins@0 {  /* For nezha board in my OS final */
+		pins = "PB4", "PB5";
+		function = "uart5";
+		drive-strength = <10>;
+		bias-pull-up;
+	};
+
+	uart5_pins_b: uart5_pins@1 {  /* For nezha board in my OS final */
+		pins = "PB4", "PB5";
+		function = "gpio_in";
+	};
+
 	twi0_pins_a: twi0@0 {
 		pins = "PB10", "PB11";	/*sck sda*/
 		function = "twi0";
@@ -267,6 +279,7 @@
 		function = "i2s0";
 		drive-strength = <20>;
 		bias-disable;
+		status = "disabled";
 	};
 
 	daudio0_pins_b: daudio0_sleep@0 {
@@ -479,6 +492,13 @@
 	pinctrl-0 = <&uart3_pins_a>;
 	pinctrl-1 = <&uart3_pins_a>;
 	status = "disabled";
+};
+
+&uart5 {
+	pinctrl-names = "default", "sleep";
+	pinctrl-0 = <&uart5_pins_a>;
+	pinctrl-1 = <&uart5_pins_b>;
+	status = "okay";
 };
 
 &soc {
@@ -754,7 +774,7 @@ tvd_row*tvd_column is the total tvd channel number to be used in multichannel mo
 	pinctrl-names   = "default","sleep";
 	pinctrl-0       = <&dmic_pins_a>;
 	pinctrl-1       = <&dmic_pins_b>;
-	status = "disabled";
+	/*status = "disabled";*/
 };
 
 &sounddmic {
@@ -859,7 +879,7 @@ tvd_row*tvd_column is the total tvd channel number to be used in multichannel mo
 	pinctrl-1;
 	pinctrl_used	= <0x0>;
 	daudio_type	= <0x1>;
-	status = "okay";
+	status = "disabled";
 };
 
 /* if HDMI audio is used, daudio2 should be enable. */
