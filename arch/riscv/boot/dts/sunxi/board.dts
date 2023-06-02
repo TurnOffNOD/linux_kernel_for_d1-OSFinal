@@ -186,18 +186,6 @@
 		bias-pull-up;
 	};
 
-	uart5_pins_a: uart5_pins@0 {  /* For nezha board in my OS final */
-		pins = "PB4", "PB5";
-		function = "uart5";
-		drive-strength = <10>;
-		bias-pull-up;
-	};
-
-	uart5_pins_b: uart5_pins@1 {  /* For nezha board in my OS final */
-		pins = "PB4", "PB5";
-		function = "gpio_in";
-	};
-
 	twi0_pins_a: twi0@0 {
 		pins = "PB10", "PB11";	/*sck sda*/
 		function = "twi0";
@@ -492,13 +480,6 @@
 	pinctrl-0 = <&uart3_pins_a>;
 	pinctrl-1 = <&uart3_pins_a>;
 	status = "disabled";
-};
-
-&uart5 {
-	pinctrl-names = "default", "sleep";
-	pinctrl-0 = <&uart5_pins_a>;
-	pinctrl-1 = <&uart5_pins_b>;
-	status = "okay";
 };
 
 &soc {
