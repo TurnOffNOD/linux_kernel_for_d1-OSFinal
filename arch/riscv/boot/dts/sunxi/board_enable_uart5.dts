@@ -1,0 +1,36 @@
+/dts-v1/;
+/plugin/;
+
+/*
+#include "sun20iw1p1.dtsi"
+#include "board.dts"
+*/
+
+/{
+	compatible = "allwinner,d1", "arm,sun20iw1p1", "allwinner,sun20iw1p1";
+
+	&pio {
+		uart5_pins_a: uart5_pins@0 {  /* For nezha board in my OS final */
+			pins = "PB4", "PB5";
+			function = "uart5";
+			drive-strength = <10>;
+			bias-pull-up;
+		};
+
+	};
+
+	&uart5 {
+		pinctrl-names = "default";
+		pinctrl-0 = <&uart5_pins_a>;
+		status = "okay";
+	};
+
+	&daudio2 {
+		status = "disabled";
+	};
+
+	/* if HDMI audio is used, daudio2 should be enable. */
+	&hdmiaudio {
+		status = "disabled";
+	};
+};
