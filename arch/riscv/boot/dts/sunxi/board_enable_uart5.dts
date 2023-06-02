@@ -9,28 +9,39 @@
 /{
 	compatible = "allwinner,d1", "arm,sun20iw1p1", "allwinner,sun20iw1p1";
 
-	&pio {
-		uart5_pins_a: uart5_pins@0 {  /* For nezha board in my OS final */
-			pins = "PB4", "PB5";
-			function = "uart5";
-			drive-strength = <10>;
-			bias-pull-up;
+	fragment@0 {
+		target-path = "/soc@3000000/pinctrl@2000000";
+		__overlay__ {
+			uart5_pins_a: uart5_pins@0 {  /* For nezha board in my OS final */
+				pins = "PB4", "PB5";
+				function = "uart5";
+				drive-strength = <10>;
+				bias-pull-up;
+			};
 		};
-
 	};
 
-	&uart5 {
-		pinctrl-names = "default";
-		pinctrl-0 = <&uart5_pins_a>;
-		status = "okay";
+	fragment@1 {
+		target-path = "/soc@3000000/uart@2501400";
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&uart5_pins_a>;
+			status = "okay";
+		};
 	};
 
-	&daudio2 {
-		status = "disabled";
+	fragment@2 {
+		target-path = "/soc@3000000/daudio@2034000";
+		__overlay__ {
+			status = "disabled";
+		};
 	};
 
 	/* if HDMI audio is used, daudio2 should be enable. */
-	&hdmiaudio {
-		status = "disabled";
+	fragment@3 {
+		target-path = "/soc@3000000/hdmiaudio@20340a4";
+		__overlay__ {
+			status = "disabled";
+		};
 	};
 };
