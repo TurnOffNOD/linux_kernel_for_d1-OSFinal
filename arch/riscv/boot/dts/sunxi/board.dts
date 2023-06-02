@@ -267,7 +267,6 @@
 		function = "i2s0";
 		drive-strength = <20>;
 		bias-disable;
-		status = "disabled";
 	};
 
 	daudio0_pins_b: daudio0_sleep@0 {
@@ -755,7 +754,7 @@ tvd_row*tvd_column is the total tvd channel number to be used in multichannel mo
 	pinctrl-names   = "default","sleep";
 	pinctrl-0       = <&dmic_pins_a>;
 	pinctrl-1       = <&dmic_pins_b>;
-	/*status = "disabled";*/
+	status = "okay";
 };
 
 &sounddmic {
@@ -860,7 +859,7 @@ tvd_row*tvd_column is the total tvd channel number to be used in multichannel mo
 	pinctrl-1;
 	pinctrl_used	= <0x0>;
 	daudio_type	= <0x1>;
-	status = "disabled";
+	status = "okay";
 };
 
 /* if HDMI audio is used, daudio2 should be enable. */
