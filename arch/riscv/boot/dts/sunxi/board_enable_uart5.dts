@@ -12,7 +12,7 @@
 		target-path = "/soc/pinctrl@2000000";
 
 		__overlay__ {
-			uart5_pins_a : uart5_pins@0 {
+			uart5_pins_a: uart5_pins@0 {
 				pins = "PB4", "PB5";
 				function = "uart5";
 				muxsel = <7>;
