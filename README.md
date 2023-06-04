@@ -1,3 +1,5 @@
+## 注意：现在自己微小修改过的脚本，需要将改repo和tina的sdk放在同一个目录下，并且命名为tina-sdk-d1
+
 # Instructions
 
 Note: Please update the RVBoards image to V0.5 or above
