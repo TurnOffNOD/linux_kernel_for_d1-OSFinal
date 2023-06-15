@@ -1,4 +1,12 @@
-## 注意：现在自己微小修改过的脚本，需要将改repo和tina的sdk放在同一个目录下，并且命名为tina-sdk-d1
+## OS期末大作业-14组（选做实验3）
+# 大作业代码架构：该repo用于使能哪吒D1开发板上的uart5串口，在linux里注册为设备/dev/ttyS5。
+# 在使能uart5之后，用https://github.com/TurnOffNOD/group14-osFinal-NFCapp 作为而NFC板子的驱动进行读写。
+用于使能的dts文件位于：arch/riscv/boot/dts/sunxi/board_enable_uart5.dts
+
+使用：
+
+
+## 注意：现在自己微小修改过的脚本，需要将该repo和tina的sdk放在同一个目录下，并且将tina的sdk命名为tina-sdk-d1
 
 # Instructions
 
