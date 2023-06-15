@@ -10,7 +10,7 @@
 + 该repo用于使能哪吒D1开发板上的uart5串口，在linux里注册为设备`/dev/ttyS5`，步骤下面详述。
 + 在使能uart5之后，用https://github.com/TurnOffNOD/group14-osFinal-NFCapp 作为而NFC板子的驱动进行读写。
 
-**用于使能的dts文件位于：arch/riscv/boot/dts/sunxi/board_enable_uart5.dts**
+**用于使能的dts文件位于：`arch/riscv/boot/dts/sunxi/board_enable_uart5.dts`**
 
 使用：在该repo目录下，执行下述命令制作dtbo：
 ```bash
