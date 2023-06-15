@@ -1,13 +1,34 @@
-## OS期末大作业-14组（选做实验3）
-# 大作业代码架构：该repo用于使能哪吒D1开发板上的uart5串口，在linux里注册为设备/dev/ttyS5。
-# 在使能uart5之后，用https://github.com/TurnOffNOD/group14-osFinal-NFCapp 作为而NFC板子的驱动进行读写。
-用于使能的dts文件位于：arch/riscv/boot/dts/sunxi/board_enable_uart5.dts
+# OS期末大作业-14组（选做实验3）
+**使用的发行版：https://d1.docs.aw-ol.com/strong/strong_4debian/ ，用的是RVBoards_D1_Debian_img_v0.6.1版本**
 
-使用：
+（下载地址：http://www.perfxlab.cn:8080/rvboards/）
+
+**先根据https://d1.docs.aw-ol.com/study/study_4compile/， 使用上述的发行版制作启动TF卡。**
 
 
-## 注意：现在自己微小修改过的脚本，需要将该repo和tina的sdk放在同一个目录下，并且将tina的sdk命名为tina-sdk-d1
+## 大作业代码架构：
++ 该repo用于使能哪吒D1开发板上的uart5串口，在linux里注册为设备`/dev/ttyS5`，步骤下面详述。
++ 在使能uart5之后，用https://github.com/TurnOffNOD/group14-osFinal-NFCapp 作为而NFC板子的驱动进行读写。
 
+**用于使能的dts文件位于：arch/riscv/boot/dts/sunxi/board_enable_uart5.dts**
+
+使用：在该repo目录下，执行下述命令制作dtbo：
+```bash
+./scripts/dtc/dtc -I dts -O dtb arch/riscv/boot/dts/sunxi/board_enable_uart5.dts -o enable-uart5.dtbo
+```
+之后的步骤：
+1. 将上面制作得到的TF卡插入linux主机，（自己实验时是将TF卡+TF转SD卡卡套插入笔记本电脑的读卡器）；
+2. 挂载，得到的enable-uart5.dtbo复制进入boot分区的overlay文件夹下，（实验时，在自己电脑的路径为`/run/media/<username>/D899-0644/overlay`）；
+3. 修改boot分区下的`config.txt`，将`dtoverlay`一行修改为`dtoverlay=enable-uart5`；
+4. unmount，将TF卡插入哪吒D1开发板启动。
+
+此时将有了`/dev/ttyS5`，继续前往https://github.com/TurnOffNOD/group14-osFinal-NFCapp 即可。
+
+
+## 下面是实验过程中的一些没有在最终结果中使用的中间探索说明，在此不作删除。
+**注意：现在自己微小修改过的脚本，需要将该repo和tina的sdk放在同一个目录下，并且将tina的sdk命名为tina-sdk-d1
+
+## 下面是原repo带的readme说明，不做删除。
 # Instructions
 
 Note: Please update the RVBoards image to V0.5 or above
