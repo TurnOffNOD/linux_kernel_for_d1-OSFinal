@@ -26,7 +26,7 @@
 
 
 ## 下面是实验过程中的一些没有在最终结果中使用的中间探索说明，在此不作删除。
-**注意：现在自己微小修改过的脚本，需要将该repo和tina的sdk放在同一个目录下，并且将tina的sdk命名为tina-sdk-d1
+**注意：现在自己微小修改过的脚本，需要将该repo和tina的sdk放在同一个目录下，并且将tina的sdk命名为tina-sdk-d1**
 
 ## 下面是原repo带的readme说明，不做删除。
 # Instructions
